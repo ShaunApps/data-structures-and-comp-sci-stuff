@@ -1,6 +1,6 @@
 # this creates a single node
 class Node(object):
-    def __int__(self, data=None, next_node=None):
+    def __init__(self, data=None, next_node=None):
         self.data = data
         self.next_node = next_node
 
@@ -29,7 +29,7 @@ class Linked_List(object):
         current = self.head
         counter = 0
         while current:
-            count += 1
+            counter += 1
             current = current.get_next()
         return counter
 
@@ -50,7 +50,7 @@ class Linked_List(object):
         previous = None
         found = False
         while current and found is False:
-            if current.get_data() == current:
+            if current.get_data() == data:
                 found = True
             else:
                 previous = current
@@ -61,3 +61,12 @@ class Linked_List(object):
             self.head = current.get_next()
         else:
             previous.set_next(current.get_next())
+
+
+
+new_list = Linked_List()
+new_list.insert(1)
+new_list.insert(2)
+print new_list.size()
+new_list.delete(2)
+print new_list.size()
