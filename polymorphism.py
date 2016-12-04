@@ -1,8 +1,8 @@
-class Character():
+class Character(object):  # remove 'object' argument for Python 3
 
     def __init__(self, name, gender):
         self.__name = name
-        self.gender = gender
+        self.__gender = gender
 
     def getName(self):
         return self.__name
@@ -17,17 +17,22 @@ class Character():
         self.__gender = gender
 
 
-class Warrior(Character):
+class Paladin(Character):
 
+    # # Python 3 syntax
+    # def __init__(self, name, gender, weapon_type):
+    #     super().__init__(name, gender)
+    #     self.__weapon_type = weapon_type
+
+    # Python 2 syntax
     def __init__(self, name, gender, weapon_type):
-        # Python 3 syntax
-        super().__init__(name, gender)
+        super(Paladin, self).__init__(name, gender)
         self.__weapon_type = weapon_type
 
     def getDescription(self):
-        return self.getGender() + " Warrior " + self.getName() + " with " + self.__weapon_type + " weapon."
+        return self.getGender() + " Paladin " + self.getName() + " with " + self.__weapon_type + "-type weapon."
 
 
-
-s = Warrior("Jim", "Male", "Offensive")
-print(s.getDescription())
+c = Paladin("Tim", "Male", "Defensive")
+print c.getDescription()
+print c.getName()
